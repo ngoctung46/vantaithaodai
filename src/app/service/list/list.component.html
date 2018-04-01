@@ -1,0 +1,27 @@
+<!-- services section -->
+<div class="services" id="services">
+  <div class="heading">
+    <h2>Các dịch vụ của chúng tôi</h2>
+  </div>
+  <div class="container">
+    <div class="servicegrids">
+      <div class="servicetopgrids">
+        <div *ngFor="let service of services.slice(0,3); let i = index;" class="col-md-4 servicegrid1">
+          <h5>{{i+1}}</h5>
+          <h4>{{service.name}}</h4>
+          <p>{{service.description}}</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="servicebottomgrids">
+        <div *ngFor="let service of services.slice(3,6); let i = index;" class="col-md-4 servicegrid1">
+          <h5>{{i+4}}</h5>
+          <h4>{{service.name}}</h4>
+          <p>{{service.description}}</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //services section -->

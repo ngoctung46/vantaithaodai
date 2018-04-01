@@ -1,0 +1,96 @@
+<!-- Slider -->
+<div class="slider">
+  <div class="callbacks_container">
+    <ul class="rslides" id="slider">
+      <li>
+        <div class="w3layouts-banner-top w3layouts-banner-top1">
+          <div class="banner-dott">
+            <div class="container">
+              <div class="slider-info">
+                <div class="col-md-8">
+                  <h2 class="text-success">Vận Tải Thảo Đại</h2>
+                  <h4>Nhận Hợp Đồng Xe Du Lịch Và Chuyển Nhà, Kho, Hàng Trọn Gói</h4>
+                  <div class="w3ls-button">
+                    <a href="#" data-toggle="modal" data-target="#myModal">Xem Báo Giá Dịch Vụ</a>
+                  </div>
+                  <div class="bannergrids">
+                    <div class="col-md-4 grid1">
+                      <i class="fa fa-truck" aria-hidden="true"></i>
+                      <p>Hợp đồng xe du lịch giá siêu rẻ</p>
+                    </div>
+                    <div class="col-md-4 grid1">
+                      <i class="fa fa-bus" aria-hidden="true"></i>
+                      <p>Vận chuyển hàng hóa, chở đồ khắp mọi nơi</p>
+                    </div>
+                    <div class="col-md-4 grid1">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <p><a href="tel: +841662733163">0166 2733 163 (Đại)</a><br/><a href="tel: +84906093002">090 609 3002 (Thảo)</a></p>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div [hidden]="!submitted" class="alert alert-success">
+                    <strong>Yêu cầu đặt xe đã được gửi thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất. Xin cám ơn!</strong>.
+                  </div>
+                  <div class="banner-form-agileinfo" [hidden]="submitted">
+                    <h5>Cần
+                      <span>Du Lịch, Vận Chuyển Hàng Hóa</span>?</h5>
+                    <p>Làm ơn điền vào form bên dưới. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất.</p>
+                    <form #bookingForm="ngForm" (ngSubmit)="onSubmit();">
+                      <input type="text" class="email" name="name" placeholder="Tên" required [(ngModel)]="booking.name" #name="ngModel">
+                      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Bắt buộc phải có tên</div>
+                      <input type="tel" class="tel" name="tel" placeholder="Số Điện Thoại" required [(ngModel)]="booking.phone" #phone="ngModel">
+                      <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">Bắt buộc phải có số điện thoại</div>
+                      <label class="form-control">Chọn Điểm Đi</label>
+                      <select class="form-control option-w3ls" [(ngModel)]="booking.from" name="from">
+                        <option *ngFor="let item of district" [value]="item">{{item}}</option>
+                      </select>
+                      <label class="form-control">Chọn Điểm Đến</label>
+                      <select class="form-control option-w3ls" [(ngModel)]="booking.to" name="to">
+                        <option *ngFor="let item of district" [value]="item">{{item}}</option>
+                      </select>
+                      <button type="submit" class="btn btn-danger btn-lg btn-block" [disabled]="!bookingForm.form.valid">Đặt Xe</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<!-- //Slider -->
+<!-- bootstrap-modal-pop-up -->
+<div class="modal video-modal fade padding" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Báo Giá Dịch Vụ
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tr>
+            <th class="success">Loại Xe</th>
+            <th class="success">Trong Vòng 10 KM</th>
+            <th class="success">Trên 10 KM</th>
+            <th class="success">Theo Ngày</th>
+          </tr>
+          <tr *ngFor="let price of prices">
+            <td>{{price.type}}</td>
+            <td class="text-right">{{price.price1 | number}}Đ</td>
+            <td class="text-right">{{price.price2 | number}}Đ</td>
+            <td class="text-right">{{price.price3 | number}}Đ</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //bootstrap-modal-pop-up -->

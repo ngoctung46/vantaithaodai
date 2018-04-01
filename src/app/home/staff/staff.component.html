@@ -1,0 +1,23 @@
+<!-- team -->
+<div class="team" id="team">
+  <div class="container">
+  <div class="heading">
+    <h3 class="text-primary">Đội Ngũ Nhân Viên</h3>
+  </div>
+    <div class="wthree_team_grids">
+      <div *ngFor="let staff of staffs" class="col-md-3 wthree_team_grid">
+        <div class="hovereffect">
+          <img src="../../../assets/images/{{staff.url}}" alt=" " class="img-responsive" />
+          <div class="overlay">
+            <h6>{{staff.job}}</h6>
+          </div>
+        </div>
+        <h4>{{staff.name}}</h4>
+        <p>{{staff.position}}</p>
+        <h2 class="text-danger">{{staff.phone}}</h2>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+<!-- //team -->
